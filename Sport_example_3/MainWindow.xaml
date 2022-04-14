@@ -1,0 +1,56 @@
+﻿<Window x:Class="Sport_example_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport_example_3"
+        mc:Ignorable="d"
+        Title="Главное меню" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu x:Name="MainMenu"  Grid.Row="0" IsEnabled="False">
+            <MenuItem Header="Касса">
+                <MenuItem x:Name="SalesMenuItem"  Header="Продажи" Click="SalesMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="OrderMenuItem"  Header="Закупки" Click="OrderMenuItem_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="HandbooksMenuItem"  Header="Справочники" >
+                <MenuItem x:Name="PositionEmployeesMenuItem"  Header="Должности сотрудников" Click="PositionEmployeesMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="ProductCategoriesMenuItem" Header="Категории товаров" Click="ProductCategoriesMenuItem_Click" ></MenuItem>
+                <MenuItem x:Name="EmployeesMenuItem" Header="Сотрудники" Click="EmployeesMenuItem_Click"  />
+                <MenuItem x:Name="ProductsMenuItem"  Header="Товары" Click="ProductsMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="SuppliersMenuItem"  Header="Поставщики" Click="SuppliersMenuItem_Click"></MenuItem>
+                <MenuItem x:Name="ProductsSuppliersMenuItem"  Header="Поставщики-товары" Click="ProductsSuppliersMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="PricesMenuItem"  Header="Прайс-лист" Click="PricesMenuItem_Click"></MenuItem>
+            <MenuItem x:Name="StorageMenuItem"  Header="Склад" Click="StorageMenuItem_Click"></MenuItem>
+            <MenuItem x:Name="ReportsMenuItem"  Header="Отчеты">
+                <MenuItem x:Name="SalesReportsMenuItem"  Header="Отчет по продажам" Click="SalesReportsMenuItem_Click" ></MenuItem>
+                <MenuItem x:Name="OrderReportsMenuItem"  Header="Отчет по закупкам" Click="OrderReportsMenuItem_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="AdminPanelMenuItem"  Header="Администрирование" >
+                <MenuItem x:Name="UsersMenuItem" Header="Пользователи" Click="UsersMenuItem_Click" ></MenuItem>
+                <MenuItem x:Name="UserRolesMenuItem" Header="Роли пользователей" Click="UserRolesMenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="ExitMenuItem"  Header="Выход" Click="ExitMenuItem_Click"></MenuItem>
+        </Menu>
+
+        <Image Source="Resources/MainMenuBackground.jpg" Grid.Row="1" Stretch="Fill"></Image>
+        <RichTextBox Background="Bisque" x:Name="WelcomeRichTextBox" BorderThickness="0"  Grid.Row="1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True" Opacity="0">
+            <FlowDocument>
+
+            </FlowDocument>
+        </RichTextBox>
+
+
+        <TextBlock Text="Это учебный проект. Все права принадлежат Парфенову Александру." Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="10" Margin="0 0 10 0"></TextBlock>
+
+    </Grid>
+</Window>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="Sport_example_3.Views.SalesReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport_example_3.Views"
+        xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="Отчет по продажам" MinHeight="600" MinWidth="800" Height="600" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/HandBookWindowDefaultStyle.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="85*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock Text="C:"></TextBlock>
+                <DatePicker SelectedDate="{Binding BeginDate}"></DatePicker>
+                <TextBlock Text="По:"></TextBlock>
+                <DatePicker SelectedDate="{Binding EndDate}"></DatePicker>
+                <Button Content="Применить" Command="{Binding FilterOnDatePeriodCommand}"></Button>
+            </StackPanel>
+            <TextBlock Text="Выберите чек:"></TextBlock>
+            <DataGrid x:Name="ReceiptDataGrid" ItemsSource="{Binding ReceiptList}" SelectedItem="{Binding SelectedReceipt}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Код чека" Binding="{Binding Id}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Дата и время" Binding="{Binding DateTime}" Width="1*"></DataGridTextColumn>
+                </DataGrid.Columns>
+
+                <behaviors:Interaction.Triggers>
+                    <behaviors:EventTrigger EventName="SelectionChanged" SourceObject="{Binding ElementName=ReceiptDataGrid}">
+                        <behaviors:InvokeCommandAction Command="{Binding SelectReceiptCommand}" CommandParameter="{Binding ElementName=ReceiptDataGrid, Path=SelectedItem}" />
+                    </behaviors:EventTrigger>
+                </behaviors:Interaction.Triggers>
+            </DataGrid>
+            <TextBlock Text="Список товаров в выбранном чеке:"></TextBlock>
+            <DataGrid x:Name="ProductsInReceiptDataGrid" ItemsSource="{Binding ProductInReceiptList}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер позиции" Binding="{Binding IndexNumber}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Наименование товара" Binding="{Binding Product.Name}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Сумма" Binding="{Binding Sum}" Width="1*"></DataGridTextColumn>
+                </DataGrid.Columns>
+
+                
+
+            </DataGrid>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Общая стоимость товаров в выбранном чеке:" />
+                <TextBox Text="{Binding TotalSum}"/>
+            </StackPanel>
+
+        </StackPanel>
+        <Button x:Name="BackButton"  Content="Назад" VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Grid.Row="2" Click="BackButton_Click"></Button>
+
+
+
+
+    </Grid>
+</Window>

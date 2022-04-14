@@ -1,0 +1,47 @@
+﻿<Window x:Class="Sport_example_3.Views.DialogWindows.EmployeeEditOrAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport_example_3.Views.DialogWindows"
+        mc:Ignorable="d"
+        Title="Добавление/изменение информации о сотруднике" MinHeight="250" MinWidth="400" Height ="650" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/DialogWindowDefaultStyle.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="95*" />
+            <RowDefinition Height="5*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <StackPanel>
+                <TextBlock Text="Фамилия:" />
+                <TextBox Text="{Binding Employee.Surname}"/>
+                <TextBlock Text="Имя:" />
+                <TextBox Text="{Binding Employee.Name}"/>
+                <TextBlock Text="Отчество:" />
+                <TextBox Text="{Binding Employee.Patronymic}"/>
+                <TextBlock Text="Пол:" />
+                <ComboBox ItemsSource="{Binding GenderList}" SelectedItem="{Binding Employee.Gender}">
+                </ComboBox>
+                <TextBlock Text="Номер телефона:" />
+                <TextBox Text="{Binding Employee.PhoneNumber}"/>
+                <TextBlock Text="Должность:" />
+                <ComboBox x:Name="EmployeePositionComboBox" DisplayMemberPath="Name" ItemsSource="{Binding PositionEmployeeList}" SelectedItem="{Binding SelectedPositionEmployee}"></ComboBox>
+            </StackPanel>
+
+
+            <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Button IsDefault="True" Click="Accept_Click" Margin="5">OK</Button>
+                <Button IsCancel="True" Margin="5">Отмена</Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

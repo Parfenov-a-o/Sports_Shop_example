@@ -1,0 +1,40 @@
+﻿<Window x:Class="Sport_example_3.Views.StorageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport_example_3.Views"
+        mc:Ignorable="d"
+        Title="Склад" MinHeight="600" MinWidth="800" Height="600" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/HandBookWindowDefaultStyle.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="85*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="Количество товаров на складе:"></TextBlock>
+            <DataGrid x:Name="HandBookDataGrid" ItemsSource="{Binding ProductInStorageList}" SelectedItem="{Binding SelectedEmployee}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование товара" Binding="{Binding Name}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Категория товара" Binding="{Binding ProductCategory.Name}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Кол-во на складе" Binding="{Binding CountInStorage}" Width="1*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Единица измерения" Binding="{Binding Unit}" Width="1*"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <Button x:Name="BackButton"  Content="Назад" VerticalAlignment="Bottom" HorizontalAlignment="Left" DockPanel.Dock="Bottom" Grid.Row="2" Click="BackButton_Click"></Button>
+
+
+
+
+    </Grid>
+</Window>

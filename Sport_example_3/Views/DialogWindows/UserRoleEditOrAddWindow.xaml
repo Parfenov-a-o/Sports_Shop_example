@@ -1,0 +1,34 @@
+﻿<Window x:Class="Sport_example_3.Views.DialogWindows.UserRoleEditOrAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport_example_3.Views.DialogWindows"
+        mc:Ignorable="d"
+        Title="Добавление/изменение роли пользователя" MinHeight="250" MinWidth="400" Height ="250" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="/Resources/DialogWindowDefaultStyle.xaml" />
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="50*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Text="Название роли:" />
+
+            <TextBox Text="{Binding Name}"/>
+        </StackPanel>
+
+
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Button IsDefault="True" Click="Accept_Click" Margin="5">OK</Button>
+            <Button IsCancel="True" Margin="5">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>
