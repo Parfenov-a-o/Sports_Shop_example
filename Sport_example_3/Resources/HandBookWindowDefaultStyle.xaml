@@ -5,6 +5,7 @@
         <Setter Property="Margin" Value="8 8 8 0" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="Medium"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
     </Style>
     
     <Style TargetType="DataGrid">
@@ -30,4 +31,16 @@
         <Setter Property="FontSize" Value="12"></Setter>
         <Setter Property="Margin" Value="8" />
     </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Margin" Value="8 8 8 0" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Margin" Value="8 8 8 0" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="MinWidth" Value="70" />
+    </Style>
+
 </ResourceDictionary>

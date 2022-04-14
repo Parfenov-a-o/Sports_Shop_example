@@ -16,11 +16,14 @@
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"></RowDefinition>
-            <RowDefinition Height="85*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="83*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="0">
+
+        <TextBlock Text="Закупка товаров у поставщиков" Style="{x:Null}" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" VerticalAlignment="Top"></TextBlock>
+
+        <StackPanel  Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Выберите поставщика:" />
             <ComboBox x:Name="SupplierComboBox" DisplayMemberPath="Name" ItemsSource="{Binding SupplierList}" SelectedItem="{Binding SelectedSupplier}">
                 <behaviors:Interaction.Triggers>
@@ -40,8 +43,8 @@
             <TextBlock Text="Выберите товар:" />
             <ComboBox x:Name="ProductComboBox" DisplayMemberPath="Name" ItemsSource="{Binding ProductList}" SelectedItem="{Binding SelectedProduct}"></ComboBox>
             <TextBlock Text="Единица измерения выбранного товара:" />
-            <TextBlock Text="{Binding SelectedProduct.Unit}"></TextBlock>
-            <TextBlock Text="Введите стоимость закупки единицы товара, в рублях:" />
+            <TextBlock Text="{Binding SelectedProduct.Unit}" FontWeight="Normal"></TextBlock>
+            <TextBlock Text="Введите стоимость закупки единицы товара, в рублях:" TextWrapping="Wrap"  />
             <TextBox Text="{Binding PriceValue}"></TextBox>
             <TextBlock Text="Введите количество единиц товара:" />
             <TextBox Text="{Binding CountValue}"></TextBox>
@@ -49,16 +52,17 @@
 
         </StackPanel>
 
+
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Список товаров в корзине:"></TextBlock>
-            <DataGrid x:Name="HandBookDataGrid" ItemsSource="{Binding ProductInOrderBasketList}" SelectedItem="{Binding SelectedProductInOrderBasket}">
+            <DataGrid x:Name="HandBookDataGrid" ItemsSource="{Binding ProductInOrderBasketList}" SelectedItem="{Binding SelectedProductInOrderBasket}" MinHeight="300">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="#" Binding="{Binding IndexNumber}" Width="1*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Наименование товара" Binding="{Binding Product.Name}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Поставщик" Binding="{Binding Supplier.Name}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Сумма" Binding="{Binding Sum}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="#" Binding="{Binding IndexNumber}" Width="5*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Наименование товара" Binding="{Binding Product.Name}" Width="30*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Поставщик" Binding="{Binding Supplier.Name}" Width="20*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="15*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="15*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Сумма" Binding="{Binding Sum}" Width="15*"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

@@ -34,7 +34,7 @@ namespace Sport_example_3.Views.DialogWindows
             
 
             string login = this.LoginTextBox.Text;
-            string password = this.PasswordTextBox.Text;
+            string password = this.PasswordTextBox.Password;
 
             using (ApplicationContext db = new ApplicationContext())
             {
@@ -61,6 +61,10 @@ namespace Sport_example_3.Views.DialogWindows
                     Login = login;
                     this.DialogResult = true;
 
+                }
+                else
+                {
+                    MessageBox.Show("Вы ввели неправильный логин или пароль");
                 }
             }
         }

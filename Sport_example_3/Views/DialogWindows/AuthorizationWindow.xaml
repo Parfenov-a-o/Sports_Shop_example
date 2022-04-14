@@ -22,9 +22,9 @@
         <StackPanel ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <StackPanel>
                 <TextBlock Text="Введите логин:" />
-                <TextBox x:Name="LoginTextBox"  Text="{Binding Employee.Surname}"/>
+                <TextBox x:Name="LoginTextBox"/>
                 <TextBlock Text="Введите пароль:" />
-                <TextBox x:Name="PasswordTextBox"  Text="{Binding Employee.Name}"/>
+                <PasswordBox x:Name="PasswordTextBox"></PasswordBox>
             </StackPanel>
 
 

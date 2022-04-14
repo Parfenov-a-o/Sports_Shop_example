@@ -21,5 +21,11 @@
         <Setter Property="FontSize" Value="12"></Setter>
     </Style>
 
-    
+    <Style TargetType="PasswordBox">
+        <Setter Property="Margin" Value="8 8 8 0" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Height" Value="Auto"></Setter>
+
+    </Style>
+
 </ResourceDictionary>

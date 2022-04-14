@@ -228,7 +228,7 @@ namespace Sport_example_3.ViewModels
                       Product product = selectedItem as Product;
 
                       //Проверка, является ли количество товара приобретаемого пользователем больше нуля
-                      if (CountValue > 0)
+                      if ((CountValue > 0) && (PriceValue > 0))
                       {
                           //Загрузка списка корзины в локальный список
                           List<ProductInOrderBasket> localProductInBasketList = ProductInOrderBasketList.ToList();
@@ -252,6 +252,10 @@ namespace Sport_example_3.ViewModels
 
                           //Подсчёт итоговой суммы заказа
                           TotalSum = ProductInOrderBasketList.Sum(p => p.Sum).Value;
+                      }
+                      else
+                      {
+                          MessageBox.Show("Вы ввели некорректные данные цены или количества!");
                       }
 
                           
@@ -334,6 +338,8 @@ namespace Sport_example_3.ViewModels
                           db.SaveChanges();
 
                           MessageBox.Show("Заказ успешно оформлен!");
+
+                          ProductInOrderBasketList = new List<ProductInOrderBasket>();
                       }
                       else
                       {

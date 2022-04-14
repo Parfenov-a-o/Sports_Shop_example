@@ -16,10 +16,13 @@
             <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"></RowDefinition>
-            <RowDefinition Height="85*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="83*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <TextBlock Text="Продажа товаров клиентам" Style="{x:Null}" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" VerticalAlignment="Top"></TextBlock>
+
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Выберите категорию товаров:" />
             <ComboBox x:Name="ProductCategoryComboBox" DisplayMemberPath="Name" ItemsSource="{Binding ProductCategoryList}" SelectedItem="{Binding SelectedProductCategory}">
@@ -38,11 +41,11 @@
                 </behaviors:Interaction.Triggers>
             </ComboBox>
             <TextBlock Text="Актуальная цена товара:" />
-            <TextBlock Text="{Binding ActualPrice}" Style="{x:Null}"/>
+            <TextBlock Text="{Binding ActualPrice}" FontWeight="Normal"/>
             <TextBlock Text="Количество товара на складе:" />
-            <TextBlock Text="{Binding CountInStorage}" Style="{x:Null}" />
+            <TextBlock Text="{Binding CountInStorage}" FontWeight="Normal"/>
             
-            <TextBlock Text="Приобретаемое количество товара:"/>
+            <TextBlock Text="Введите количество единиц товара:"/>
             <TextBox Text="{Binding ActualCount}"/>
             <Button Content="Добавить в корзину" Command="{Binding AddToBasketCommand}" CommandParameter="{Binding ElementName=ProductComboBox, Path=SelectedItem}"></Button>
 
@@ -50,13 +53,13 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Список товаров в корзине:"></TextBlock>
-            <DataGrid x:Name="HandBookDataGrid" ItemsSource="{Binding ProductInBasketList}" SelectedItem="{Binding SelectedProductInBasket}">
+            <DataGrid x:Name="HandBookDataGrid" ItemsSource="{Binding ProductInBasketList}" SelectedItem="{Binding SelectedProductInBasket}" MinHeight="300">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="#" Binding="{Binding IndexNumber}" Width="1*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Наименование товара" Binding="{Binding Product.Name}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Сумма" Binding="{Binding Sum}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="#" Binding="{Binding IndexNumber}" Width="5*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Наименование товара" Binding="{Binding Product.Name}" Width="35*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="20*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="20*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Сумма" Binding="{Binding Sum}" Width="20*"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

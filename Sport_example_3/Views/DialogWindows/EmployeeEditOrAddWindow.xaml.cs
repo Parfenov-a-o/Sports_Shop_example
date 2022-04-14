@@ -32,26 +32,15 @@ namespace Sport_example_3.Views.DialogWindows
             InitializeComponent();
 
 
-            //Employee = e;
             viewmodel = new ViewModels.EmployeeEditOrAddViewModel(e);
             this.DataContext = viewmodel;
 
-            //Employee = viewmodel.Employee;
-            //PositionEmployee = viewmodel.SelectedPositionEmployee;
-
-            //Employee.PositionEmployee = viewmodel.SelectedPositionEmployee;
-            //Employee.PositionEmployee.Id = viewmodel.SelectedPositionEmployee.Id;
-            //this.DataContext = Employee;
-            //this.EmployeePositionComboBox.ItemsSource = PositionEmployeeList;
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
             Employee = viewmodel.Employee;
             PositionEmployee = viewmodel.SelectedPositionEmployee;
-            //ApplicationContext db = new ApplicationContext();
-
-            //PositionEmployee = db.Positions.Find(viewmodel.SelectedPositionEmployee.Id);
 
             this.DialogResult = true;
         }

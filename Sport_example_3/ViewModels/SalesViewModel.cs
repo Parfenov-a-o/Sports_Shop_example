@@ -336,6 +336,8 @@ namespace Sport_example_3.ViewModels
                           db.SaveChanges();
 
                           MessageBox.Show("Заказ успешно оформлен!");
+
+                          ProductInBasketList = new List<ProductInBasket>();
                       }
                       else
                       {

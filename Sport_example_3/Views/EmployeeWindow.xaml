@@ -24,14 +24,13 @@
             <TextBlock Text="Список сотрудников:"></TextBlock>
             <DataGrid x:Name="HandBookDataGrid" ItemsSource="{Binding EmployeeList}" SelectedItem="{Binding SelectedEmployee}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Код сотрудника" Binding="{Binding Id}" Width="1*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="ФИО" Binding="{Binding Fullname}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Пол" Binding="{Binding Gender}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}" Width="3*"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Должность" Binding="{Binding PositionEmployee.Name}" Width="3*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Код сотрудника" Binding="{Binding Id}" Width="5*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="20*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="20*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="10*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Пол" Binding="{Binding Gender}" Width="5*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Номер телефона" Binding="{Binding PhoneNumber}" Width="20*"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Должность" Binding="{Binding PositionEmployee.Name}" Width="20*"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

@@ -92,6 +92,8 @@ namespace Sport_example_3.ViewModels
 
                           //Сохраняем изменения в БД
                           db.SaveChanges();
+
+                          
                       }
 
 

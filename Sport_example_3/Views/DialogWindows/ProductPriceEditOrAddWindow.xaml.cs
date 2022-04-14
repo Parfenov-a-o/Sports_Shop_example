@@ -28,7 +28,6 @@ namespace Sport_example_3.Views.DialogWindows
         public ProductPriceEditOrAddWindow(ProductPrice pp)
         {
             InitializeComponent();
-            //ProductPrice = pp;
             viewModel = new ViewModels.ProductPriceEditOrAddViewModel(pp);
             this.DataContext = viewModel;
         }
